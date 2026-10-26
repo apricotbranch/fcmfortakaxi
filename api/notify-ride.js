@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   try {
     // 1. Query Firestore for active, online drivers matching the vehicle type
     const driversSnapshot = await db.collection('users')
-      .where('role', '==', 'driver')
+      .where('userType', '==', 'driver')
       .where('isOnline', '==', true)
       .where('vehicleType', '==', rideType.toLowerCase())
       .get();
